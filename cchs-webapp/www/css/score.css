@@ -1,0 +1,29 @@
+#calendar
+{
+	background-color: #FFFFFF;
+}
+
+.event
+{
+	width: 10px;
+	height: 10px;
+	background-image: url(../img/calButton.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+	border: 0;
+	text-align: bottom center;
+	padding: 15px 15px 15px 15px;
+}
+
+input.center
+{
+	text-align: center;
+}
+
+#article
+{
+	background-color: #FFFFFF;
+	border: solid 1px;
+	overflow: hidden;
+}

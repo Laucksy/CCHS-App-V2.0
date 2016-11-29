@@ -1,0 +1,16 @@
+#wrapper
+{
+	width:100%;
+	min-width:300px;
+	margin: 0 auto;
+}
+
+body 
+{
+	background-color: #FBF9FA;
+}
+
+.center
+{
+	text-align:center;
+}
