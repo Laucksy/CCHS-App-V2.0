@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://www.parsecdn.com/js/parse-1.6.2.min.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/delays.js"></script>
+		<script src="js/lz-string.js"></script>
+		<script type="text/javascript">app.initialize();</script>
+		<style>
+			html, body {
+				width:100%;
+				height:100%;
+				overflow:hidden;
+			}
+		</style>
+	</head>
+	<body bgcolor="white">
+		<div style="width:100%;height:100%;overflow:hidden;">
+			<div style="width:100%;height:20%;"></div>
+			<img src="img/launch.jpg" id="pic" onclick="keepShown()" style="position:absolute;overflow:hidden;vertical-align:middle;height:60%;">	
+		</div>
+		
+		<script>
+			localStorage.setItem("connection", "true");
+			localStorage.setItem("init", "true");
+			if(localStorage.getItem("firstTime") === null) {
+				localStorage.setItem("firstTime", "false");
+				localStorage.setItem("pageHome", 0);
+				localStorage.setItem("pageSport", 0);
+				localStorage.setItem("pageLunch", 0);
+				localStorage.setItem("pageStore", 0);
+				localStorage.setItem("pageClub", 0);
+				localStorage.setItem("pageCalendar", 0);
+				localStorage.setItem("pagePlanner", 0);
+				localStorage.setItem("pageTalon", 0);
+				localStorage.setItem("pageNews", 0);
+				localStorage.setItem("pageMap", 0);
+				localStorage.setItem("pageClosing", 0);
+				localStorage.setItem("pageFlappy", 0);
+				localStorage.setItem("pageAbout", 0);
+				localStorage.setItem("adminMode", "false");
+				localStorage.setItem("adminPassword", "false");
+				localStorage.setItem("adminCriteria1", "false");
+				localStorage.setItem("adminCriteria2", "false");
+				localStorage.setItem("adminCriteria3", "false");
+			}
+		
+			var image = document.getElementById("pic");
+			console.log(window.innerHeight);
+			image.style.width = (window.innerWidth) + "px";
+		
+			var proceed = 1;
+		
+			var count = 0;
+			timer = setInterval(function() {
+				count++;
+				if(count >= 3) {
+					change();
+				}
+			}, 1000);
+		
+			/*try {
+				Parse.initialize("1nbCZcm4WHUpYs0C89oTo231mhcpL2LRa5KfsYtw", "nNWuXfGI2ujbWBzxd5Om3F3OgFIIZRfvonOxfdEc");
+				/*var newImages = Parse.Object.extend("HomeScreenImages");
+				query = new Parse.Query(newImages);
+				query.find().then(function(results) {
+					var temp = "";
+					for(i = 0; i < results.length; i++) {
+						if(parseInt(results[i].get("Display")) == 1) {
+							temp = results[i].get("Data");
+							localStorage.setItem("newImageWidth", results[i].get("Width"));
+							localStorage.setItem("newImageHeight", results[i].get("Height"));
+						}
+					}
+					//console.log(temp);
+					//console.log(temp[0], JSON.stringify(temp));
+					start(temp);
+					//localStorage.setItem("imageURLs", temp);
+					console.log("done");
+					proceed = 1;
+				});
+				proceed = 1;
+				
+			} catch(e) {
+				localStorage.setItem("Delays", " ");
+				localStorage.setItem("imageURLs", "a");
+				proceed = 1;
+			}*/
+		
+			function change() {
+				clearInterval(timer);
+				window.location = "newHome.html";
+			}
+			
+			function keepShown() {
+				image.style.display = "block";
+			}
+			
+			function start(test) {
+				console.log(test);
+				var decompressed = LZString144.decompress(test);
+				console.log(decompressed);
+				localStorage.setItem("imageURLs", decompressed);
+			}
+		</script>
+	</body>
+</html>
